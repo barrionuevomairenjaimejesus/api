@@ -1,0 +1,185 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>CONTAMINANTES</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<style>
+  h1{
+    font-family: fantasy;
+    color: #0DABAA;
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+table, th, td {
+          border: 1px solid #d2d2d2;
+          text-align: center;
+        }
+
+        th, td {
+          width: 50%;
+          height: 40px
+        }
+
+        table {
+          width: 100%
+        }
+
+
+table {
+height: 100%;
+width: 100%;
+align-items: center;
+border:solid;
+border-collapse: collapse;
+border-radius: 1em;
+overflow: hidden;
+}
+
+td {
+padding-left: 1%;
+padding: 0.25%;
+width: 50%;
+}
+
+#con {color:#000000; background-color: #D85500}
+#pm{background-color: #E98600}
+#o{background-color: #E98600;}
+#no{background-color: #E98600;}
+body {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align:center;
+}
+a {
+color: rgb(0,100, 240);
+}
+.navbar a:hover{
+background-color: #A100D8;
+}
+
+img{border-radius: 5px; border-color: black; border:solid; align-items: center;}
+
+</style>
+  </head>
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Aire</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Tablas</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/tabla_anos">Años perdidos</a></li>
+                <li><a class="dropdown-item" href="/tabla_muertes">Muertes prematuras</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Mapas</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/mapa_anos">Mapa de los años perdidos</a></li>
+                <li><a class="dropdown-item" href="/mapa_muertes">Mapa de las muertes prematuras</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Gráficas años perdidos</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/grafica01_anos">Años perdidos por contaminante</a></li>
+                <li><a class="dropdown-item" href="/grafica02_anos">Total de años perdidos</a></li>
+                <li><a class="dropdown-item" href="/grafica03_anos">Comparación de años perdidos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Gráficas muertes prematuras</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/grafica01_muertes">Muertes por contaminante</a></li>
+                <li><a class="dropdown-item" href="/grafica02_muertes">Total de muertes</a></li>
+                <li><a class="dropdown-item" href="/grafica03_muertes">Comparación de muertes prematuras</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+<br><br><br><br>
+    <img src="images/banner.jpg" alt="">
+    <tr>
+      <h2>Creator:</h2>
+      <th colspan="2" style="text-align: center;"><b> Proyecto realizado por Jaime Jesús Barrionuevo Mairén </b></a><br>
+          <b>(2ºASIR-A. </b> <a href="https://www.iespuntadelverde.es/" target="_blank"> <b>IES Punta del Verde </b></a><b>. Curso 2020/2021)</b><br><br>
+      </th>
+    </tr>
+<main class="px-3">
+
+
+  <p> <b>Los datos están extraidos del informe de 2020 de la agencia europea del medio ambiente </b><a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report" target="_blank"><b>Air quality in Europe — 2020 report</b></a> </p>
+  <table align="center" border="1" style="width:auto; height:20px;" class="table table-condensed table-bordered table-hover">
+    <tr>
+      <TH id="con"> CONTAMINANTES</TH>
+    </tr>
+    <tr>
+      <th id="pm">
+          <a href="https://www.ecologistasenaccion.org/17842/que-son-las-pm25-y-como-afectan-a-nuestra-salud/" target="_blank"> <span  data-placement="right" data-toggle="tooltip" title="La materia particulada 2.5 o PM2.5 (por sus siglas en inglés, particulate matter) son partículas muy pequeñas suspendidas en el aire que tienen un diámetro de menos de 2.5 micras. La materia particulada incluye sustancias químicas orgánicas, polvo, hollín y metales. En concreto las PM2.5 pueden provenir de todas las clases de combustión, como la de los automóviles, camiones, fábricas, quemas de madera, quemas agrícolas y otras actividades.1 Se les considera un contaminante atmosférico por sus efectos nocivos sobre la salud.">PM<sub>2.5</sub></span></a>
+    <tr>
+      <th id="o">
+          <a href="https://es.wikipedia.org/wiki/Ozono" target="_blank"><span data-placement="right" data-toggle="tooltip" title="El ozono es un compuesto gaseoso incoloro, que posee la capacidad de oxidar materiales. El ozono es un contaminante secundario que se forma mediante la reacción química del dióxido de nitrógeno (NO2) y compuestos orgánicos volátiles (COV) en presencia de la luz solar.">O<sub>3</sub></span></a></th>
+
+    <tr>
+      <th id="no">
+          <a href="https://www.saludgeoambiental.org/dioxido-nitrogeno-no2#:~:text=Qu%C3%A9%20es%3A,principales%20contaminantes%20en%20las%20ciudades." target="_blank"><span data-placement="right" data-toggle="tooltip" title="El dióxido de nitrógeno NO2 es un compuesto químico gaseoso de color marrón amarillento formado por la combinación de un átomo de nitrógeno y dos de oxígeno. Es un gas tóxico e irritante. El NO2 junto al NO-óxido nitroso- son conocidos como NOx y son algunos de los principales contaminantes en las ciudades.">
+              NO<sub>3</sub>
+                  </span></a>
+              </th>
+
+        </table>
+
+</main>
+
+<footer class="mt-auto text-white-50">
+  <tr>
+    <td colspan="2">
+      <br>
+      <img src="images/pie.png" alt="">
+    </td>
+  </tr>
+</footer>
+
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+      <script src="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/offcanvas.js"></script>
+  </body>
+</html>

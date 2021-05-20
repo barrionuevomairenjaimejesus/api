@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Tabla de años perdidos</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/">
+
+    <!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<style>
+th{border: solid; background-color: #F68686; height: 75px; text-align: center;}
+td{border: solid; background-color: #D2A5A5; height: 50px; text-align: center;}
+#tabla{border-style: solid;}
+h2,h3{text-align: center;}
+</style>
+  </head>
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Aire</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="offcanvas" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mapa">Mapas</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Gráficas</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/grafica01">Años perdidos</a></li>
+                <li><a class="dropdown-item" href="/grafica02">Muertes prematuras</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Tablas</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li><a class="dropdown-item" href="/tabla_anos">Años perdidos</a></li>
+                <li><a class="dropdown-item" href="/tabla_muertes">Muertes prematuras</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br><br><br><br>
+    <h2>Tabla que representa los años de esperanza de vida perdidos por los diferentes contaminantes </h2>
+    <h3>Datos de 2018</h3>
+    <table id="tabla" style="width: 100%">
+
+  <tr>
+      <th>Country</th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost by PM2.5">* YLL by PM<sub>2.5</sub></span></a></th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost for 100k inhabitants by PM2.5">* YLL Hab by PM<sub>2.5</sub></span></a></th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost by NO2">* YLL by NO<sub>2</sub></span></a></th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost for 100k inhabitants by NO2">* YLL Hab by NO<sub>2</sub></span></a></th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost by O3">* YLL by O<sub>3</sub></span></a></th>
+      <th><a target="_blank"><span data-placement="right" data-toggle="tooltip" title="Years of Life Lost for 100k inhabitants by O3">* YLL Hab by O<sub>3</sub></span></a></th>
+  </tr>
+  <% for (var i = 0; i < anos_perdidos.length; i++ ) { %>
+  <tr>
+      <td><%= anos_perdidos[i].Country %></td>
+      <td><%= anos_perdidos[i].YLL_PM25 %></td>
+      <td><%= anos_perdidos[i].YLL_Hab_PM25 %></td>
+      <td><%= anos_perdidos[i].YLL_NO2 %></td>
+      <td><%= anos_perdidos[i].YLL_Hab_NO2 %></td>
+      <td><%= anos_perdidos[i].YLL_O3 %></td>
+      <td><%= anos_perdidos[i].YLL_Hab_O3 %></td>
+  </tr>
+  <% } %>
+  </table>
+  <footer class="mt-auto text-white-50">
+    <tr>
+      <td colspan="2">
+        <br>
+        <center>
+	          <img id="imagen" src="images/pie.png" alt="">
+        </center>
+      </td>
+    </tr>
+  </footer>
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+      <script src="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/offcanvas.js"></script>
+  </body>
+</html>
