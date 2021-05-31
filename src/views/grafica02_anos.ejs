@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Muertes por contaminantes</title>
+    <%- include('../partials/head.html')%>
   </head>
   <body>
-
+    <%- include('../partials/navigation.html')%>
+    <br><br>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -14,7 +16,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        prueba
+
     </p>
 </figure>
 
@@ -57,7 +59,7 @@
   .highcharts-data-table tr:hover {
       background: #f1f7ff;
   }
-
+p{text-align: center;}
 </style>
 
 <script type="text/javascript">
@@ -66,10 +68,10 @@
           type: 'bar'
       },
       title: {
-          text: 'Historic World Population by Region'
+          text: 'Total months of life lost per inhabitant by pollutants'
       },
       subtitle: {
-          text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+          text: 'Source: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
       },
       xAxis: {
           categories: [
@@ -84,7 +86,7 @@
       yAxis: {
           min: 0,
           title: {
-              text: 'Population (millions)',
+              text: 'Population',
               align: 'high'
           },
           labels: {
@@ -92,7 +94,7 @@
           }
       },
       tooltip: {
-          valueSuffix: ' millions'
+          valueSuffix: ' Month of life lost'
       },
       plotOptions: {
           bar: {
@@ -117,10 +119,12 @@
           enabled: false
       },
       series: [ {
-          name: 'Muertes totales',
+          name: 'Month of life lost',
           data: [
           <% for(var i=0; i < anos_perdidos.length; i++) { %>
-             <%= total=anos_perdidos[i].YLL_PM25+anos_perdidos[i].YLL_NO2+anos_perdidos[i].YLL_O3 %>,
+            <% for(var i=0; i < muertes_prematuras.length; i++) { %>
+             <%= total=Math.round((((anos_perdidos[i].YLL_PM25+anos_perdidos[i].YLL_NO2+anos_perdidos[i].YLL_O3)/(muertes_prematuras[i].Population_mill*1000000))*80)*12) %>,
+             <% } %>
           <% } %>
           ]
       }]

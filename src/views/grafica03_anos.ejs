@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Muertes por contaminantes</title>
+    <%- include('../partials/head.html')%>
   </head>
   <body>
+    <%- include('../partials/navigation.html')%>
+    <br><br>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -14,13 +17,15 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            <b>En este gráfico podremos ver en número total de muertes por los diferentes contaminantes que estamos tratando </b>
+            <!-- <b>En este gráfico podremos ver en número total de muertes por los diferentes contaminantes que estamos tratando </b> -->
         </p>
     </figure>
 
 <style type="text/css">
   #container {
     height: 400px;
+    width: 900px;
+    margin-left: 200px;
 }
 
 .highcharts-figure, .highcharts-data-table table {
@@ -56,8 +61,16 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
+fieldset{ margin-top:-410px;}
 </style>
+<div>
+<fieldset >
+<b>Select the countries that you want to compare in a graphic</b>
+<br>
+<% for (var i = 0; i < anos_perdidos.length; i++ ) { %>
+<input type="checkbox" value="paises" required><%= anos_perdidos[i].Country %> <br>
+  <% } %>
+</fieldset>
 <figure class="highcharts-figure">
     <div id="container">
 <script type="text/javascript">
@@ -132,6 +145,7 @@
     }]
 });
 </script>
+</div>
 </div>
 </body>
 </html>

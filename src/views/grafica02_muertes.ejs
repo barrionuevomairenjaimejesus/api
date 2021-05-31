@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Muertes por contaminantes</title>
+    <title>Graphic total premature deaths by pollutants</title>
+    <%- include('../partials/head.html')%>
   </head>
   <body>
-
+    <%- include('../partials/navigation.html')%>
+    <br><br>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -14,7 +16,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        prueba
+        <b>Graphics that represent the total number of deaths by pollutants in a country<b>
     </p>
 </figure>
 
@@ -57,7 +59,7 @@
   .highcharts-data-table tr:hover {
       background: #f1f7ff;
   }
-
+p{text-align: center;}
 </style>
 
 <script type="text/javascript">
@@ -66,10 +68,10 @@
           type: 'bar'
       },
       title: {
-          text: 'Historic World Population by Region'
+          text: 'Total population death for 100.000 inhabitants by pollutants'
       },
       subtitle: {
-          text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+          text: 'Source: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
       },
       xAxis: {
           categories: [
@@ -84,7 +86,7 @@
       yAxis: {
           min: 0,
           title: {
-              text: 'Population (millions)',
+              text: 'Population',
               align: 'high'
           },
           labels: {
@@ -92,7 +94,7 @@
           }
       },
       tooltip: {
-          valueSuffix: ' millions'
+          valueSuffix: ' death people'
       },
       plotOptions: {
           bar: {
@@ -117,10 +119,10 @@
           enabled: false
       },
       series: [ {
-          name: 'Muertes totales',
+          name: 'Total deaths',
           data: [
           <% for(var i=0; i < muertes_prematuras.length; i++) { %>
-             <%= muertes_prematuras[i].Total_deaths %>,
+             <%= muertes_prematuras[i].Relative_10k_hab %>,
           <% } %>
           ]
       }]

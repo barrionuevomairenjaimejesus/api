@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Muertes por contaminantes</title>
+    <%- include('../partials/head.html')%>
   </head>
   <body>
-
+    <%- include('../partials/navigation.html')%>
+    <br><br>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -57,16 +59,15 @@
     background: #f1f7ff;
 }
 </style>
-
 <script type="text/javascript">
 Highcharts.chart('container', {
 
     title: {
-        text: 'Años perdidos por los contaminantes'
+        text: 'Years of life lost by pollutants'
     },
 
     subtitle: {
-        text: 'por paises europeos'
+        text: 'Source: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
     },
 
     yAxis: {
@@ -88,21 +89,21 @@ Highcharts.chart('container', {
         name: 'PM2.5',
         data: [
           <% for(var i=0; i < anos_perdidos.length; i++) { %>
-             <%= anos_perdidos[i].YLL_PM25 %>,
+             <%= anos_perdidos[i].YLL_Hab_PM25 %>,
           <% } %>
         ]
     }, {
         name: 'NO2',
         data: [
           <% for(var i=0; i < anos_perdidos.length; i++) { %>
-             <%= anos_perdidos[i].YLL_NO2 %>,
+             <%= anos_perdidos[i].YLL_Hab_NO2 %>,
           <% } %>
         ]
     }, {
         name: 'O3',
         data: [
           <% for(var i=0; i < anos_perdidos.length; i++) { %>
-             <%= anos_perdidos[i].YLL_O3 %>,
+             <%= anos_perdidos[i].YLL_Hab_O3 %>,
           <% } %>
         ]
     }],

@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Muertes por contaminantes</title>
+    <title>Graphic of premature deaths by pollutant </title>
+    <%- include('../partials/head.html')%>
   </head>
   <body>
-
+      <%- include('../partials/navigation.html')%>
+      <br><br>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -15,7 +17,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-      Gráfico representativo de las muertes por  según que contaminante
+      <b>Representative graphic of the premature deaths by pollutant<b>
     </p>
 </figure>
 
@@ -56,22 +58,23 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+p{text-align: center;}
 </style>
 
 <script type="text/javascript">
 Highcharts.chart('container', {
 
     title: {
-        text: 'Años perdidos por los contaminantes'
+        text: 'Premature deaths caused by pollutants'
     },
 
     subtitle: {
-        text: 'por paises europeos'
+        text: 'Source: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
     },
 
     yAxis: {
         title: {
-            text: 'Número de muertes por el contaminante'
+            text: 'Number of deaths by contamiant'
         }
     },
 

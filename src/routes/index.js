@@ -39,8 +39,9 @@ router.get('/grafica01_anos', async (req, res) => {
 //Total de años perdidos.
 router.get('/grafica02_anos', async (req, res) => {
   const anos_perdidos = await Anos_perdidos.find()
+  const muertes_prematuras = await Muertes_prematuras.find()
   res.render('grafica02_anos', {
-    anos_perdidos
+    anos_perdidos , muertes_prematuras
   });
 });
 //Gráfico por formulario con años perdidos.
@@ -80,7 +81,6 @@ router.get('/grafica03_muertes', async (req, res) => {
 //Círculo por total de años perdidos por país.
 router.get('/mapa_anos', async (req, res) =>{
     const anos_perdidos = await Anos_perdidos.find()
-    //console.log(anos_perdidos)
     res.render('mapa_anos', {
       anos_perdidos
     });
@@ -91,6 +91,13 @@ router.get('/mapa_muertes', async (req, res) =>{
     //console.log(anos_perdidos)
     res.render('mapa_muertes', {
       muertes_prematuras
+    });
+});
+
+router.get('/prueba', async (req, res) =>{
+    const anos_perdidos = await Anos_perdidos.find()
+    res.render('prueba', {
+        anos_perdidos
     });
 });
 /*=======================MAPAS=======================*/
