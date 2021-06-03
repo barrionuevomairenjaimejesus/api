@@ -8,7 +8,8 @@
   <style type="text/css">
   button{border:#017D94 5px inset; background-color: #69E5FC; height: 75px; width: 125px;}
   tr{border:#017D94 5px inset; height: 50px; text-align: center;}
-  #tabla{border-style: solid;}
+  td{border:#017D94 5px inset; height: 50px; text-align: center;}
+  table{margin-left: 415px; border-style: solid; align:center;}
   #centrado{ text-align: center;}
     form{ text-align: center;}
   </style>
@@ -24,17 +25,11 @@
             <div >
                 <form action="/grafica03_muertes_post" method="POST">
                     <div >
-                        <style>
-                            table, th, td {
-                              border: 1px solid black;
-                              padding: 8px;
-                            }
-                            </style>
                         <table>
                             <tr>
-                        <% let j = 1;
+                        <% let j = 0;
                         for (var i = 0; i < muertes_prematuras.length; i++ ) {
-                            if (j > 10) {
+                            if (j > 5) {
                                 j = 1
                         %> </tr><tr>
                         <%
@@ -58,7 +53,7 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br>
+    <br>
     <footer class="mt-auto text-white-50">
       <tr>
         <td colspan="2">
