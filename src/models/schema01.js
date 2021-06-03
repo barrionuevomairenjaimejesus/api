@@ -14,7 +14,3 @@ const SchemaAnos_perdidos = new Schema({
 });
 
 module.exports = mongoose.model('anos_perdidos', SchemaAnos_perdidos)
-
-
-//export const  anos_perdidos = model('anos_perdidos', anos_perdidos)
-//export const muertes_prematuras = model('muertes_prematuras', muertes_prematuras)

@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Muertes por contaminantes</title>
+    <title>Comparative graphic (PD)</title>
     <%- include('../partials/head.html')%>
   </head>
   <body>
     <%- include('../partials/navigation.html')%>
     <br><br>
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -16,13 +17,14 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            <b>En este gráfico podremos ver en número total de muertes por los diferentes contaminantes que estamos tratando </b>
         </p>
     </figure>
 
 <style type="text/css">
   #container {
-    height: 400px;
+    min-width: 310px;
+      max-width: 800px;
+    margin: 1em auto;
 }
 
 .highcharts-figure, .highcharts-data-table table {
@@ -58,6 +60,7 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+fieldset{ margin-top:-410px;}
 
 </style>
 <figure class="highcharts-figure">
@@ -68,10 +71,10 @@
         type: 'column'
     },
     title: {
-        text: 'Muertes prematuras a causa de los contaminantes'
+        text: 'Total population death for 100.000 inhabitants by pollutants'
     },
     subtitle: {
-        text: 'Fuente: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
+        text: 'Source: <a href="https://www.eea.europa.eu/publications/air-quality-in-europe-2020-report">Air quality in Europe — 2020 report</a>'
     },
     xAxis: {
         type: 'category',
@@ -86,38 +89,22 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'Número de muertes prematuras'
+            text: 'Total of deaths by pollutant'
         }
     },
     legend: {
         enabled: false
     },
     tooltip: {
-        pointFormat: 'Muertes totales por contaminantes'
+        pointFormat: '<tr><td style="color:{series.color};padding:0"> </td>' +
+            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>'
     },
     series: [{
-        name: 'Paises',
+        name: 'Countries',
         data: [
-            ['Shanghai', 24.2],
-            ['Beijing', 20.8],
-            ['Karachi', 14.9],
-            ['Shenzhen', 13.7],
-            ['Guangzhou', 13.1],
-            ['Istanbul', 12.7],
-            ['Mumbai', 12.4],
-            ['Moscow', 12.2],
-            ['São Paulo', 12.0],
-            ['Delhi', 11.7],
-            ['Kinshasa', 11.5],
-            ['Tianjin', 11.2],
-            ['Lahore', 11.1],
-            ['Jakarta', 10.6],
-            ['Dongguan', 10.6],
-            ['Lagos', 10.6],
-            ['Bengaluru', 10.3],
-            ['Seoul', 9.8],
-            ['Foshan', 9.3],
-            ['Tokyo', 9.3]
+        <% for(var i=0; i < datos.length; i++) { %>
+             ['<%= datos[i].Country %>',<%=datos[i].Relative_10k_hab %>],
+          <% } %>
         ],
         dataLabels: {
             enabled: true,
@@ -135,5 +122,16 @@
 });
 </script>
 </div>
+<br><br><br><br><br><br>
+<footer class="mt-auto text-white-50">
+  <tr>
+    <td colspan="2">
+      <br>
+      <center>
+          <img id="imagen" src="images/pie.png" alt="">
+      </center>
+    </td>
+  </tr>
+</footer>
 </body>
 </html>

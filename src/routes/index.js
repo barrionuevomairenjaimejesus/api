@@ -44,14 +44,38 @@ router.get('/grafica02_anos', async (req, res) => {
     anos_perdidos , muertes_prematuras
   });
 });
-//Gráfico por formulario con años perdidos.
-router.get('/grafica03_anos', async (req, res) => {
+// Formulario de selección con get y post
+router.get('/grafica03_anos_get', async (req, res) => {
   const anos_perdidos = await Anos_perdidos.find()
-  res.render('grafica03_anos', {
+  res.render('grafica03_anos_get', {
     anos_perdidos
   });
 });
 
+router.post('/grafica03_anos_post', async (req, res) => {
+  let paises = req.body.paises
+  if (typeof paises != 'object'){
+    res.redirect('/grafica03_anos_get')
+  }else{
+    const datos = await Anos_perdidos.aggregate([
+      {
+          $project: {
+              _id: 0,
+              Country: 1,
+              YLL_Hab_PM25:1
+          }
+      },
+      {
+          $match: {
+              Country: {$in: paises}
+          }
+      }
+  ])
+    res.render('grafica03_anos_post', {
+      datos
+    });
+  }
+});
 
 //Gráfico de muertes prematuras por contaminantes (3 líneas).
 router.get('/grafica01_muertes', async (req, res) => {
@@ -67,12 +91,38 @@ router.get('/grafica02_muertes', async (req, res) => {
     muertes_prematuras
   });
 });
-//Gráfico por formulario con muertes prematuras.
-router.get('/grafica03_muertes', async (req, res) => {
+// Formulario de selección con get y post
+router.get('/grafica03_muertes_get', async (req, res) => {
   const muertes_prematuras = await Muertes_prematuras.find()
-  res.render('grafica03_muertes', {
+  res.render('grafica03_muertes_get', {
     muertes_prematuras
   });
+});
+
+router.post('/grafica03_muertes_post', async (req, res) => {
+  let paises = req.body.paises
+  if (typeof paises != 'object'){
+    res.redirect('/grafica03_muertes_get')
+  }else{
+    const datos = await Muertes_prematuras.aggregate([
+      {
+          $project: {
+              _id: 0,
+              Country: 1,
+              Total_deaths: 1,
+              Relative_10k_hab: 1
+          }
+      },
+      {
+          $match: {
+              Country: {$in: paises}
+          }
+      }
+  ])
+    res.render('grafica03_muertes_post', {
+      datos
+    });
+  }
 });
 
 /*=======================GRÁFICAS=======================*/
@@ -94,11 +144,6 @@ router.get('/mapa_muertes', async (req, res) =>{
     });
 });
 
-router.get('/prueba', async (req, res) =>{
-    const anos_perdidos = await Anos_perdidos.find()
-    res.render('prueba', {
-        anos_perdidos
-    });
-});
+
 /*=======================MAPAS=======================*/
 module.exports= router

@@ -7,9 +7,10 @@ const app = express()
 
 //Conectarnos a una base de datos.
 const atlasURL = 'mongodb+srv://aire:aire@cluster0.7gnbs.mongodb.net/Aire?retryWrites=true&w=majority'
+const atlasPrURL = 'mongodb+srv://jaime:jaime@cluster0-mms5n.mongodb.net/Aire?retryWrites=true&w=majority'
 const localURL = 'mongodb://localhost:27017/calidad_aire'
 
-mongoose.connect(atlasURL, {useNewParser:true, useUnifiedTopology:true} )
+mongoose.connect(atlasPrURL, {useNewParser:true, useUnifiedTopology:true} )
     .then(db => console-log('Conectado a la BD'))
     .catch(error => console.log(error))
 
@@ -26,6 +27,8 @@ app.use(express.static(__dirname + "/public"));
 
 //Llamadas antes de arrancar
 app.use(morgan('dev'))
+//Para que use el body en los formularios
+app.use(express.urlencoded({extended:false}))
 
 //Routes.
 app.use('/', indexRoutes)
